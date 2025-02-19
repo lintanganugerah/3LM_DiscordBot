@@ -10,6 +10,6 @@ I wanted an easy way for my friends to test and experience the capabilities of a
 (3L stands for Local Large Language)
 
 # Future Plans
-Add commands to allow users make their own system prompt. So everyone can customize AI Model Response to their liking!
-Add support for more local dialects and languages. Bahasa banjar next
-Optimize performance for faster replies. (Pls i need powerful GPU)
+- Add commands to allow users make their own system prompt. So everyone can customize AI Model Response to their liking!
+- Add support for more local dialects and languages. Bahasa banjar next
+- Optimize performance for faster replies. (Pls i need powerful GPU)
