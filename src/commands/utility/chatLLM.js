@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("discord.js");
 const { default: OpenAI } = require("openai");
-const { client } = require("../config/LLMconfig");
+const { client } = require("@config/LLMconfig");
 
 module.exports = {
   data: new SlashCommandBuilder()

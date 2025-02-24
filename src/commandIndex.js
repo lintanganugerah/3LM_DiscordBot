@@ -1,16 +1,21 @@
 const { REST, Routes } = require("discord.js");
 const fs = require("fs");
 const path = require("path");
-const config = require("./config/config");
+const config = require("@config/config");
 
 const listCommand = [];
-const commandPath = path.join(__dirname, "command");
+const commandPath = path.join(__dirname, "commands", "utility");
 const fileCommand = fs
   .readdirSync(commandPath)
   .filter((file) => file.endsWith(".js"));
 
 fileCommand.map((fileName) => {
-  const command = require(path.join(__dirname, "command", `${fileName}`));
+  const command = require(path.join(
+    __dirname,
+    "commands",
+    "utility",
+    `${fileName}`
+  ));
   listCommand.push(command.data.toJSON());
 });
 

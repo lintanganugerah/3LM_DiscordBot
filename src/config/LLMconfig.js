@@ -1,6 +1,8 @@
 const { LMStudioClient } = require("@lmstudio/sdk");
 
-const client = new LMStudioClient();
+const client = new LMStudioClient({
+  baseUrl: "wss:llm.ngeengz.eu",
+});
 
 const llama3Instruct1b = async () => {
   try {

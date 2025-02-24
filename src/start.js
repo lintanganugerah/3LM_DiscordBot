@@ -1,10 +1,11 @@
+require("module-alias/register");
 const dotenv = require("dotenv");
 const { Client, GatewayIntentBits, Collection } = require("discord.js");
 const { default: ollama } = require("ollama");
-const config = require("./config/config");
+const config = require("@config/config");
 const { fileCommand, deployCommand } = require("./commandIndex");
 const path = require("path");
-const { execute } = require("./command/chatLLM");
+const { execute } = require("@commands/utility/chatLLM");
 
 const client = new Client({
   intents: [
@@ -19,7 +20,12 @@ const prefix = "$!";
 client.commands = new Collection();
 
 fileCommand.map((fileName) => {
-  const command = require(path.join(__dirname, "command", `${fileName}`));
+  const command = require(path.join(
+    __dirname,
+    "commands",
+    "utility",
+    `${fileName}`
+  ));
   client.commands.set(command.data.name, command);
 });
 
