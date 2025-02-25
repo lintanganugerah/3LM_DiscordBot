@@ -1,21 +1,18 @@
+require("module-alias/register");
+
 const { REST, Routes } = require("discord.js");
 const fs = require("fs");
 const path = require("path");
 const config = require("@config/config");
 
 const listCommand = [];
-const commandPath = path.join(__dirname, "commands", "utility");
+const commandPath = path.join(__dirname, "../commands");
 const fileCommand = fs
   .readdirSync(commandPath)
   .filter((file) => file.endsWith(".js"));
 
 fileCommand.map((fileName) => {
-  const command = require(path.join(
-    __dirname,
-    "commands",
-    "utility",
-    `${fileName}`
-  ));
+  const command = require(path.join(__dirname, "../commands", `${fileName}`));
   listCommand.push(command.data.toJSON());
 });
 

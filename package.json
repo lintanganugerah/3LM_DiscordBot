@@ -4,16 +4,19 @@
   "main": "src/start.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy:command:global": "node ./src/config/runRegisterCommand.js global command",
-    "deploy:command:guild": "node ./src/config/runRegisterCommand.js guild command",
-    "load:llm:llama3": "node ./src/config/runRegisterCommand.js a llmstart",
-    "load:llm:qwen2_5_7b": "node ./src/config/runRegisterCommand.js a qwen2_5_7b"
+    "deploy:command:global": "node ./src/utils/selectCommand.js global command",
+    "deploy:command:guild": "node ./src/utils/selectCommand.js guild command",
+    "llm:load:llama3": "node ./src/utils/selectCommand.js qwen2.5-7b-instruct-1m llmLoad",
+    "llm:load:gamma2_jawa": "node ./src/utils/selectCommand.js gamma2-v1 llmLoad",
+    "llm:load:qwen2_5_7b": "node ./src/utils/selectCommand.js qwen2.5-7b-instruct-1m llmLoad",
+    "llm:load": "node ./src/utils/selectCommand.js llm load",
+    "llm:model": "node ./src/utils/selectCommand.js a model"
   },
   "author": "Nau",
   "license": "ISC",
   "description": "",
   "_moduleAliases": {
-    "@config" : "src/config",
+    "@config": "src/config",
     "@commands": "src/commands"
   },
   "dependencies": {
@@ -26,6 +29,7 @@
     "nodemon": "^3.1.9",
     "ollama": "^0.5.12",
     "openai": "^4.82.0",
+    "uuid": "^11.1.0",
     "zlib-sync": "^0.1.9"
   }
 }
